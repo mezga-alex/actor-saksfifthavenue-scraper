@@ -25,6 +25,8 @@ function extractData(request, html, $) {
     const parts = pathname.split('/');
     const itemId = parts[3];
     const title = $('.product-overview__heading').text();
+    const shortDescription = $('.product-overview__short-description').text();
+
     const { designer } = pageJson.page;
     const { brand } = pageJson.products[0];
 
@@ -88,6 +90,7 @@ function extractData(request, html, $) {
                 categories,
                 scrapedAt: now.toISOString(),
                 title,
+                shortDescription,
                 description: descriptionText.trim(),
                 designer,
                 itemId,
@@ -142,6 +145,7 @@ function extractData(request, html, $) {
                 categories,
                 scrapedAt: now.toISOString(),
                 title,
+                shortDescription,
                 description: descriptionText,
                 designer,
                 itemId,
