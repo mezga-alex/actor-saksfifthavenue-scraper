@@ -34,23 +34,23 @@ function extractData(request, html, $) {
 
     // const { designer } = pageJson.page;
     // const { brand } = pageJson.products[0];
-
-    const now = new Date();
-    // const { categories, colors, sizes, skus, media, description } = json.ProductDetails.main_products[0];
-    const descriptionText = description.replace(/<[^>]*>?/gm, '.').replace(/[.]+/g, '. ');
-    const source = 'www.saksfifthavenue.com';
-
+    //
+    // const now = new Date();
+    // // const { categories, colors, sizes, skus, media, description } = json.ProductDetails.main_products[0];
+    // const descriptionText = description.replace(/<[^>]*>?/gm, '.').replace(/[.]+/g, '. ');
+    // const source = 'www.saksfifthavenue.com';
+    //
     const results = [];
-    const imageUrlPrefix = protocol + media.images_server_url + media.images_path;
-    const mediaImages = media.images;
+    // const imageUrlPrefix = protocol + media.images_server_url + media.images_path;
+    // const mediaImages = media.images;
     // const sizeList = sizes ? sizes.sizes : [];
     // const colorList = colors.colors;
     // const skuList = skus.skus;
     // const colorMap = toMap(colorList);
     // const sizeMap = toMap(sizeList);
-    const colorToAvailableSizes = new Map();
-    const colorToSizes = new Map();
-    const colorToPrice = new Map();
+    // const colorToAvailableSizes = new Map();
+    // const colorToSizes = new Map();
+    // const colorToPrice = new Map();
 
     // for (const sku of skuList) {
     //     const { color_id, size_id, price, status_alias } = sku;
@@ -177,6 +177,7 @@ function extractData(request, html, $) {
         shortDescription,
         '#debug': Apify.utils.createRequestDebugInfo(request),
     };
+    results.push(result);
     return results;
 }
 
