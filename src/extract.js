@@ -25,7 +25,7 @@ function extractData(request, html, $) {
     // const pageJson = JSON.parse(scriptData2);
     // log.info(`scriptData1: ${json}`);
     // log.info(`scriptData2: ${pageJson}`);
-
+    const results = [];
     const {protocol, pathname} = url.parse(request.url);
     const parts = pathname.split('/');
     const itemId = parts[3];
@@ -50,7 +50,6 @@ function extractData(request, html, $) {
     // const descriptionText = description.replace(/<[^>]*>?/gm, '.').replace(/[.]+/g, '. ');
     // const source = 'www.saksfifthavenue.com';
     //
-    const results = [];
     // const imageUrlPrefix = protocol + media.images_server_url + media.images_path;
     // const mediaImages = media.images;
     // const sizeList = sizes ? sizes.sizes : [];
