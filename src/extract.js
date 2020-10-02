@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const Apify = require('apify');
 const url = require('url');
+const { log } = Apify.utils;
 
 function toMap(list) {
     const map = new Map();
@@ -17,9 +18,13 @@ function extractData(request, html, $) {
     const scriptData1 = $('.framework-component script[type="application/json"]').text();
     const scriptData2 = $('.productDetail > script').text().replace('var pageData =', '').trim()
         .slice(0, -1);
+    log.info(`scriptData1: ${scriptData1}`);
+    log.info(`scriptData2: ${scriptData2}`);
 
     const json = JSON.parse(scriptData1);
     const pageJson = JSON.parse(scriptData2);
+    log.info(`scriptData1: ${json}`);
+    log.info(`scriptData2: ${pageJson}`);
 
     const { protocol, pathname } = url.parse(request.url);
     const parts = pathname.split('/');
