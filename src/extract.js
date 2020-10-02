@@ -31,6 +31,16 @@ function extractData(request, html, $) {
     const itemId = parts[3];
     const title = $('.product-overview__heading').text();
     const shortDescription = $('.product-overview__short-description').text();
+    const result = {
+        url: request.url.split('?')[0],
+        title,
+        itemId,
+        shortDescription,
+        html:html,
+        '#debug': Apify.utils.createRequestDebugInfo(request),
+    };
+    results.push(result);
+    return results;
 
     // const { designer } = pageJson.page;
     // const { brand } = pageJson.products[0];
@@ -170,15 +180,7 @@ function extractData(request, html, $) {
     //         results.push(result);
     //     }
     // });
-    const result = {
-        url: request.url.split('?')[0],
-        title,
-        itemId,
-        shortDescription,
-        '#debug': Apify.utils.createRequestDebugInfo(request),
-    };
-    results.push(result);
-    return results;
+
 }
 
 module.exports = {
